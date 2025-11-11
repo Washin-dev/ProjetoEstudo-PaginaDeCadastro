@@ -1,35 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Just+Me+Again+Down+Here&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
+  margin: 0 auto;
   background-color: #171f38;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
 }
-.background-blobs {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
+.card-cadastro {
+  background-color: #242e4c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px 400px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.blob {
-  width: 18.75rem;
-  height: 18.75rem;
-  position: absolute;
+.card-cadastro div {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin: 5px;
+}
+.card-cadastro label {
+  font-size: 18px;
+  font-family: inter;
+  color: #97a5ce;
+}
+.card-cadastro input {
+  text-align: start;
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  font-family: inter;
+  background-color: transparent;
+  border: 1px solid #171f38;
+  color: #97a5ce;
+}
+.card-cadastro button {
+  margin-top: 5px;
+  background-color: #f073c8;
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.card-cadastro button:hover {
+  background-color: #d061b2;
+  cursor: pointer;
+}
+.bolinha {
+  background-image: linear-gradient(45deg, #f073c8, #242e4c);
+  font-family: just me again down here;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
-  z-index: 1;
-  background-color: #ff6a95;
-}
-.blob-1 {
-  left: 2rem;
-  top: 37.563;
-  width: 10.308rem;
-  height: 9.308rem;
-  rotate: -135deg;
-}
-.blob-2 {
-  top: 100px;
+  margin-right: 5px;
+  font-size: 25px;
 }
