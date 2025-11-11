@@ -1,18 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Just+Me+Again+Down+Here&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
-  margin: 0 auto;
+  margin: 0;
   background-color: #171f38;
+}
+
+.registration-page {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 95vh;
 }
+
 .card-cadastro {
   background-color: #242e4c;
   display: flex;
@@ -23,17 +29,20 @@ body {
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 .card-cadastro div {
   display: flex;
   flex-direction: column;
   color: white;
   margin: 5px;
 }
+
 .card-cadastro label {
   font-size: 18px;
   font-family: inter;
   color: #97a5ce;
 }
+
 .card-cadastro input {
   text-align: start;
   padding: 8px 10px;
@@ -45,8 +54,9 @@ body {
   border: 1px solid #171f38;
   color: #97a5ce;
 }
+
 .card-cadastro button {
-  margin-top: 5px;
+  margin-top: 15px;
   background-color: #f073c8;
   padding: 10px 20px;
   color: white;
@@ -55,20 +65,36 @@ body {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 100%;
 }
+
 .card-cadastro button:hover {
   background-color: #d061b2;
   cursor: pointer;
 }
+
 .bolinha {
   background-image: linear-gradient(45deg, #f073c8, #242e4c);
-  font-family: just me again down here;
+  font-family: "Just Me Again Down Here", cursive;
   display: flex;
   justify-content: center;
+  align-items: center;
   text-align: center;
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  margin-right: 5px;
+  margin-bottom: 20px;
   font-size: 25px;
+}
+.error-message {
+  color: #ff6b6b;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-family: inter;
+  align-self: flex-start;
+}
+
+.input-error {
+  border: 1px solid #ff6b6b !important;
 }

@@ -1,4 +1,4 @@
-import Registration from "./pages/Registration";
+import Registration from "./pages/Registration.jsx";
 
 function App() {
   return (
