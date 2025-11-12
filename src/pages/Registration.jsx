@@ -65,7 +65,7 @@ function Registration() {
     setIsSubmitted(true);
 
     if (validate()) {
-      const API_URL = "http://localhost:3000/user";
+      const API_URL = "http://localhost:3001/user";
 
       setIsLoading(true);
 
@@ -87,7 +87,9 @@ function Registration() {
           );
         }
       } catch (error) {
-        alert("⚠️ Erro ao tentar conectar com o servidor.");
+        alert(
+          "⚠️ Erro ao tentar conectar com o servidor. Verifique se o backend está rodando."
+        );
       } finally {
         setIsLoading(false);
       }
