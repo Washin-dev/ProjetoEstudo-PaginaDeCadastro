@@ -30,7 +30,6 @@ function Registration() {
 
   const validate = () => {
     let newErrors = {};
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
 
@@ -38,22 +37,18 @@ function Registration() {
       newErrors.username =
         "O nome de usuário deve ter pelo menos 3 caracteres.";
     }
-
     if (formData.password.length < 6) {
       newErrors.password = "A senha deve ter pelo menos 6 caracteres.";
     }
-
     if (!formData.birthdate.trim()) {
       newErrors.birthdate = "A data de nascimento é obrigatória.";
     } else if (!dateRegex.test(formData.birthdate)) {
       newErrors.birthdate = "O formato deve ser DD/MM/AAAA.";
     }
-
     if (!formData.email) {
       newErrors.email = "O e-mail é obrigatório.";
     } else if (!emailRegex.test(formData.email)) {
-      newErrors.email =
-        "Insira um endereço de e-mail válido (ex: user@dominio.com).";
+      newErrors.email = "Insira um endereço de e-mail válido.";
     }
 
     setErrors(newErrors);
@@ -65,31 +60,29 @@ function Registration() {
     setIsSubmitted(true);
 
     if (validate()) {
-      const API_URL = "http://localhost:3001/user";
-
       setIsLoading(true);
 
       try {
-        const response = await fetch(API_URL, {
+        const response = await fetch("/api/register", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify(formData),
         });
 
+        const result = await response.json();
+
         if (response.ok) {
-          alert("✅ Registro Efetuado com Sucesso! Bem-vindo(a).");
+          alert("✅ Registro Efetuado com Sucesso!");
           setFormData({ username: "", password: "", birthdate: "", email: "" });
           setIsSubmitted(false);
         } else {
-          const errorData = await response.json();
-          alert(
-            `❌ Falha no registro: ${errorData.message || "Erro desconhecido."}`
-          );
+          throw new Error(result.error || "Erro desconhecido");
         }
       } catch (error) {
-        alert(
-          "⚠️ Erro ao tentar conectar com o servidor. Verifique se o backend está rodando."
-        );
+        alert(`❌ Falha no registro: ${error.message}`);
+        console.error("Erro completo:", error);
       } finally {
         setIsLoading(false);
       }
@@ -100,7 +93,7 @@ function Registration() {
     <div className="registration-page">
       <form className="card-cadastro" onSubmit={handleSubmit}>
         <div className="bolinha">
-          <h3>Cadastro de Usuário</h3>
+          <h3>Cadastro de Usuário </h3>
         </div>
 
         <div>
